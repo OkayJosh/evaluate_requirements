@@ -31,9 +31,12 @@ class EvaluationService:
         df = pd.read_csv(self.filepath)
         requirement_to_criteria = defaultdict(set)
         for _, row in df.iterrows():
-            requirement = row.get('Requirement', None)
-            if requirement is not None:
-                criteria_list = {c.strip().lower() for c in row.get('Evaluation Criteria').split(',')}
+            requirement = row.get('Requirement')
+            eval_criteria = row.get('Evaluation Criteria')
+
+            if requirement and eval_criteria:
+                # Strip and lowercase each criterion, and handle cases with commas separating multiple criteria
+                criteria_list = {c.strip().lower() for c in eval_criteria.split(',')}
                 requirement_to_criteria[requirement].update(criteria_list)
 
         return requirement_to_criteria
@@ -61,7 +64,8 @@ class EvaluationService:
 
         # If output_as_json is True, return the JSON representation
         if output_as_json:
-            return json.dumps(output_data, indent=4)
+            # return json.dumps(output_data, indent=4)
+            return output_data
 
         # Construct the full path for the output file
         output_directory = os.path.dirname(
