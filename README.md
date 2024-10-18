@@ -1,4 +1,4 @@
-# SUMSUB API Integration
+# Evalution Criteria
 
 This project provides a Django-based application for integrating with the SUMSUB API to manage applicant data and document uploads for verification.
 
@@ -13,9 +13,9 @@ This project provides a Django-based application for integrating with the SUMSUB
 
 ## Features
 
-- Create applicants in the SUMSUB system
-- Upload identity documents for verification
-- Retrieve verification status of applicants
+- Upload a csv file that contains software requirements and its corresponding evaluation criteria
+- The program aim to output the minimum combination of both that could lead to an effective system development
+- It can output this as pure json or as a new csv file
 
 ## Prerequisites
 
@@ -58,15 +58,9 @@ source .venv/bin/activate
     pip install -r requirements.txt
 ```
 
-4. **Create a .env file in the root directory of your project and add your SUMSUB API credentials and any other required environment variables:**
+4. **There is no .env file in the root directory of this project**
 
-```makefile
-SUMSUB_APP_TOKEN=your_app_token
-SUMSUB_SECRET_KEY=your_secret_key
-SUMSUB_TEST_BASE_URL=https://api.sumsub.com
-```
-
-5. **Run database migrations:**
+5. **No need to run database migrations:**
 
 Apply the migrations to set up your database:
 
