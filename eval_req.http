@@ -1,0 +1,15 @@
+POST http://127.0.0.0:8000/evaluate
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="filename"; filename="eval_req.csv"
+
+< ./eval_req.csv
+--WebAppBoundary--
+
+###
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PyCharm
+
+###
